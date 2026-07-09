@@ -11,10 +11,10 @@ class FavoritesScreen extends StatefulWidget {
   const FavoritesScreen({super.key, this.onFavoritesChanged});
 
   @override
-  State<FavoritesScreen> createState() => _FavoritesScreenState();
+  State<FavoritesScreen> createState() => FavoritesScreenState();
 }
 
-class _FavoritesScreenState extends State<FavoritesScreen> {
+class FavoritesScreenState extends State<FavoritesScreen> {
   List<Book> _favorites = [];
   bool _loading = true;
 
@@ -23,6 +23,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
     super.initState();
     _loadFavorites();
   }
+
+  void reload() => _loadFavorites();
 
   Future<void> _loadFavorites() async {
     setState(() => _loading = true);

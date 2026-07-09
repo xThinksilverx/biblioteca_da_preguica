@@ -20,6 +20,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final _searchController = TextEditingController();
   final _scrollController = ScrollController();
+  final _favoritesKey = GlobalKey<FavoritesScreenState>();
 
   int _selectedIndex = 0;
   User? _currentUser;
@@ -201,6 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           _buildSearchTab(theme),
           FavoritesScreen(
+            key: _favoritesKey,
             onFavoritesChanged: _loadFavoriteKeys,
           ),
         ],
@@ -215,7 +217,10 @@ class _HomeScreenState extends State<HomeScreen> {
           currentIndex: _selectedIndex,
           onTap: (i) {
             setState(() => _selectedIndex = i);
-            if (i == 1) _loadFavoriteKeys();
+            if (i == 1) {
+              _loadFavoriteKeys();
+              _favoritesKey.currentState?.reload();
+            }
           },
           items: const [
             BottomNavigationBarItem(

@@ -9,7 +9,9 @@
 
 | Nome | GitHub |
 |------|--------|
-| Otavio Rige | https://github.com/otavio-rige |
+| Otavio Augusto | https://github.com/xThinksilverx|
+|Caio Brytizigue| https://github.com/caiobritzig
+|Galdino | https://github.com/HenriqueGaldino
 
 ## Descricao
 
@@ -82,7 +84,7 @@ assets/
 
 ```bash
 # 1. Clone o repositorio
-git clone https://github.com/seu-usuario/biblioteca_da_preguica.git
+git clone https://github.com/xThinksilverx/biblioteca_da_preguica
 
 # 2. Acesse a pasta do projeto
 cd biblioteca_da_preguica
@@ -113,9 +115,3 @@ O aplicativo utiliza SQLite (via SQFlite) com duas tabelas:
 
 A sessao ativa e mantida via Shared Preferences.
 
-## Observacoes
-
-- O aplicativo funciona inteiramente offline para acesso aos favoritos ja salvos
-- A busca requer conexao com a internet
-- As senhas sao armazenadas como hash SHA-256 e nunca em texto puro
-- O tema escuro foi escolhido para combinar com o icone do aplicativo

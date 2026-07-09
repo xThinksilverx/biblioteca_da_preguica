@@ -23,6 +23,17 @@ class ApiService {
     SearchType type = SearchType.general,
     int page = 1,
   }) async {
+    final ptBooks = await _doSearch(query, type: type, page: page, language: 'por');
+    if (ptBooks.isNotEmpty) return ptBooks;
+    return _doSearch(query, type: type, page: page);
+  }
+
+  Future<List<Book>> _doSearch(
+    String query, {
+    SearchType type = SearchType.general,
+    int page = 1,
+    String? language,
+  }) async {
     if (query.trim().isEmpty) return [];
 
     final offset = (page - 1) * _pageSize;
@@ -40,11 +51,10 @@ class ApiService {
         paramKey = 'q';
     }
 
-    final uri = Uri.parse(
-      '$_baseUrl/search.json?$paramKey=$queryParam&fields=$_searchFields&limit=$_pageSize&offset=$offset',
-    );
+    var url = '$_baseUrl/search.json?$paramKey=$queryParam&fields=$_searchFields&limit=$_pageSize&offset=$offset';
+    if (language != null) url += '&language=$language';
 
-    final response = await http.get(uri).timeout(const Duration(seconds: 15));
+    final response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 15));
 
     if (response.statusCode != 200) {
       throw Exception('Falha na busca. Codigo: ${response.statusCode}');
