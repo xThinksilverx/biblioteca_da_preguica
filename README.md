@@ -10,7 +10,7 @@
 | Nome | GitHub |
 |------|--------|
 | Otavio Augusto | https://github.com/xThinksilverx|
-|Caio | https://github.com/caiobritzig
+|Caio David Brito KarolkonC | https://github.com/caiobritzig
 |Galdino | https://github.com/HenriqueGaldino
 
 ## Descricao
